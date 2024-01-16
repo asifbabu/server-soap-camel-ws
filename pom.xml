@@ -96,7 +96,7 @@
 				</executions>
 				<configuration>
 					<sources>
-						<source>${project.basedir}/src/main/webapp/greet.xsd</source>
+						<source>${project.basedir}/src/main/resources/greet.xsd</source>
 					</sources>
 				</configuration>
 			</plugin>
