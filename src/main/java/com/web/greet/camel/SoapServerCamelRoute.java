@@ -19,6 +19,7 @@ public class SoapServerCamelRoute extends RouteBuilder {
 
 	@Autowired
 	XSDSchemaProperties schemaProperties;
+	
 
 
 	/**
@@ -32,8 +33,10 @@ public class SoapServerCamelRoute extends RouteBuilder {
 		jaxb.setContextPath(schemaProperties.getJaxbGeneratedSourcePackageName());
 		from(String.format("spring-ws:rootqname:{%s}HelloSoapRequest?endpointMapping=endpointMapping",
 				schemaProperties.getNamespace()))
+		.id("soapServerRoute")
 		.unmarshal(jaxb)
-		.process(processor);
+		.process(processor)
+		.log("Processed result");
 
 	}
 
